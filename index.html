@@ -16,6 +16,7 @@
 			border-right: 1px solid #777;
 			padding-right: 7px;
 			display: inline;
+			outline: 2px solid red;
 		}
 	</style>
 </head>
@@ -32,9 +33,14 @@
 
 		function updateText()
 		{
+			if(words[word_counter][character_counter] == " "){
+				el.style.paddingRight = "28px";
+			} else{
+				el.style.paddingRight = "7px";
+			}
 			el.innerHTML = el.innerHTML+words[word_counter][character_counter++];
-
-			if(character_counter == words[word_counter].length)
+			
+			if(character_counter == words[word_counter].length + 1)
 			{
 				word_counter++; 	//choose a different word
 				character_counter = 0;	//start over with the first character of the word
@@ -46,7 +52,7 @@
 			}
 		}
 
-		setInterval(updateText,300);
+		setInterval(updateText,500);
 
 	</script>
 
